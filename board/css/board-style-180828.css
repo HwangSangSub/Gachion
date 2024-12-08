@@ -1,0 +1,615 @@
+@CHARSET "utf-8";
+
+/* CSS Document
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {
+	font-family: 'Nanum Gothic', ∏º¿∫∞ÌµÒ;
+    color:#333;
+} */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding: 0;
+	margin: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+	margin: 0 auto;
+ 	line-height: 1.5rem;
+    letter-spacing:normal;
+    
+    font-size:11pt;
+    background-color:#f6f6f6;
+}
+
+content{
+    width: 100%;
+    max-width: 65rem;
+    margin:0 auto;
+    vertical-align:middle;
+
+    display:block;
+    clear: both;
+}
+
+.contents h3{
+    padding:15px 0 2px 10px;
+	font-size:1em;
+	/*
+	color:#f60;*/
+}
+
+
+
+
+/*
+du01 normal list
+du02 slide list
+du03 photo list
+*/
+
+content ul.list_contents{
+	
+}
+content div.du01 ul.list_contents li,
+content div.du02 ul.list_contents li,
+content div.du01 ul.view_contents li,
+content div.du03 ul.view_contents li,
+content div.du01 ul.write_contents li:not(.file){
+    display:table;
+    width:100%;
+    list-style: none;
+	/*
+	padding:15px 10px; 
+    padding:.5rem 0;*/
+
+    background-color:white;
+    border-bottom:1px solid #dadcdf;
+}
+content ul li p{
+	
+	padding:20px 10px; 
+	/*
+    font-weight:bold;
+    word-wrap:break-word;
+    word-break:break-all;
+    text-align:left;*/
+}
+content ul.list_contents li p span.title{
+    vertical-align: middle;	
+    letter-spacing:-1px;
+}
+
+content ul.list_contents li p span.on{	
+	font-weight:bold;
+}
+content ul.list_contents li p span.ellipsis{	
+    max-height:50px;
+    display:block;
+    font-size:11px;
+	color:#aaa;
+	/*
+    line-height:15px;
+    padding-right:10px;
+	
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align:left;*/
+}
+
+
+content div.du02 ul.list_contents li p.m_content{
+	padding:15px 25px 25px;
+	background-color:#f6f6f6;
+}
+content div.du02 ul.list_contents li p.m_content span{	
+	display:block;
+	line-height:20px;	
+}
+content div.du02 ul.list_contents li p.m_content span img{
+	padding:10px 0;
+}
+
+content div.du03 ul{
+	
+}
+content div.du03 ul.list_contents li{
+	display:block;
+    float:left;
+    width:30%;
+	margin:1%;
+	
+    border:1px solid #dadcdf;
+	background-color:#fff;
+	
+}
+
+content div.du03 ul.list_contents li:hover{
+	font-weight:bold;
+}
+content div.du03 ul.list_contents li img.thumb {
+	/*
+    max-width:250px!important;*/
+    width:100%;
+    height:200px;/*auto;*/
+}
+
+content ul li span.more{
+    vertical-align: middle;	
+	display:inherit;
+	float:right;
+	font-size:.8em;
+	font-weight:bold;
+}
+
+
+/*width-table-cell*/
+/*
+content ul li img,*/
+content ul li p.text{
+    vertical-align:middle;
+}
+
+
+content ul.list_contents li p.text{
+    display:table-cell;
+}
+
+content ul.list_contents li p.cmt{
+    display:table-cell;
+    padding:0 5px;
+    vertical-align:middle;
+
+    width:50px!important;
+    text-align:right;
+}
+
+content ul li p.text{
+	width:65%
+}
+
+
+
+
+/*
+view_contents
+*/
+
+
+content ul.view_contents{
+	/*
+    background-color:white;
+    height:90px !important;
+	clear:both;*/
+}
+/*
+content div.du01 ul.view_contents li,
+content div.du03 ul.view_contents li{
+    display:table;
+    width:100%;
+    list-style: none; 
+	padding:15px 10px; 
+    padding:.5rem 0;
+
+    background-color:white;
+    border-bottom:1px solid #dadcdf;
+}*/
+
+content div.du01 ul.list_contents li:hover{
+	
+	font-weight:bold;
+    background-color:#f3f6f9;
+}
+content ul.view_contents li p{
+	margin:0 auto;	
+}
+content ul.view_contents li p span.title{
+	font-weight:bold;
+    vertical-align: middle;	
+    letter-spacing:-1px;
+	/*
+    font-weight:bold;
+    word-wrap:break-word;
+    word-break:break-all;
+    text-align:left;*/
+}
+
+/*
+
+content ul.view_contents li div.admin_l{
+	float:left;
+}
+
+content ul.view_contents li div.admin_r{
+	float:right;
+
+}
+*/
+
+content ul li div.file_l,
+content ul li div.admin_l{
+	float:left;
+}
+
+content ul li div.file_r,
+content ul li div.admin_r{
+	float:right;
+
+}
+content ul.view_contents li div span{
+    font-size:11px;
+	
+}
+content ul.view_contents li div.admin_l span.date{
+	color:#aaa;
+	/*	
+    padding:10px;
+    max-height:50px;
+    line-height:15px;
+	
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align:left;*/
+}
+
+content ul.view_contents li.title{
+	padding:10px 0;
+}
+content ul.view_contents li p,
+content ul.write_contents li input,
+content ul.write_contents li textarea{
+	padding:10px;
+}
+content ul.view_contents li div.admin_r span.btn,
+content ul.write_contents li div span.btn{
+	margin-left: 5px;
+    padding:5px 8px;
+	border-width:1px;
+	border-radius:3px;
+	font-weight:bold;
+}
+content div.du01 ul.view_contents li.m_content{
+}
+/*
+content div.du01 ul.view_contents li.m_content span{	
+	display:block;
+	line-height:20px;	
+}
+*/
+content div.du01 ul.view_contents li.m_content p{	
+	display:block;
+	line-height:20px;	
+}
+content div.du01 ul.view_contents li.m_content span img{
+	padding:10px 0;
+}
+
+
+
+
+
+
+/*  */
+
+content div.du01 ul.write_contents li.title{
+    display:table;
+    width:100%;
+    list-style: none;
+    background-color:#fff;
+	border-bottom:1px solid #dadcdf;
+}
+
+content div.du01 ul.write_contents li.title:hover,
+content div.du01 ul.write_contents li.m_content:hover{
+    border-bottom:1px solid coral;
+}
+content ul.write_contents li input[type~=text],
+content ul.write_contents li textarea {
+    width:97%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius:1px;
+    font-size:1.1em;
+}
+
+content ul.write_contents li input[type~=text]{
+	height:40px;
+}
+content ul.write_contents li textarea{
+	height:400px;
+
+}
+
+content ul li.file{
+	display:block;
+    width:100%;
+    list-style: none;
+
+    background-color:white;
+    border-bottom:1px solid #dadcdf;
+}
+content ul li.file div.file_l{	
+	max-width:70%!important;
+	width:70%!important;
+}
+
+content ul li.file div.file_r{	
+	max-width:30%!important;
+	width:30%!important;
+}
+content div.du01 ul.write_contents li.file p span.file{
+	display:block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+	font-weight:bold;
+	color:#666;
+}
+content div.du01 ul.write_contents li.file div.file_r p{
+	text-align:right;
+}
+/*
+content ul.write_contents li input[type~=text]:focus,
+content ul.write_contents li textarea:focus {
+    border:1px solid coral;
+}
+*/
+/*
+input[type~=text], input[type~=tel], input[type~=date] {
+    width:95%;
+    padding:5px;
+	border: 1px solid #eee;
+    border-radius:5px;
+    background-color: #eee;
+    color:#666;
+    font-size:1.1em;
+    letter-spacing:-1px;
+}
+input[type~=text]:focus, input[type~=tel]:focus, input[type~=date]:focus, textarea:focus, select:focus{
+    border: 1px solid #f60;
+}
+*/
+
+
+/* more gray */
+content div.du02 ul.list_contents li p span.more_gray{
+	font-size:2em;
+	color:#ccc;
+	padding:0 20px 20px;
+}
+content div.du02 ul.list_contents li p span.more_gray:hover{	
+	color:#00b8d4;
+}
+
+
+
+/* ------------------------------------
+button color
+*/
+content ul li span.red{
+    border:2px solid #ff5252;
+	color:#ff5252;
+}
+content ul li span.green{
+    border:2px solid #0aba72;
+	color:#0aba72;
+}
+content ul li span.blue{
+    border:2px solid #00b8d4;
+	color:#00b8d4;
+}
+content ul li span.gray{
+    border:2px solid #999;
+	color:#666;
+}
+content ul li span.red:hover{
+	background-color:#ff5252;
+	color:white;
+}
+content ul li span.green:hover{
+	background-color:#0aba72;
+	color:white;
+}
+content ul li span.blue:hover{
+	background-color:#00b8d4;
+	color:white;
+}
+content ul li span.gray:hover{
+	background-color:#999;
+	color:white;
+}
+
+
+/*color*/
+content ul li .red{
+    color:#f60;
+}
+
+content ul li .green{
+    color:#0a6;
+}
+content ul li .blue{
+    color:#06f;
+}
+
+/* list, btn hover*/
+content ul.list_contents li:hover,
+content ul li .btn{
+	cursor:pointer; 
+}
+
+
+/*
+
+------------------------------------
+div.info{
+    padding:20px 10px 0;
+}
+
+div.info h3{
+    margin-bottom:10px;
+}
+div.info p{
+    font-size:.8em;
+    line-height:1.5em;
+}
+
+
+
+div.sub_t{
+    padding:20px 10px;
+}
+div.sub_t div:first-child{
+	float:left;
+	font-weight:bold;
+}
+div.sub_t div.more{
+	float:right;
+	
+	color:#666;
+	font-size:.8em;
+	font-weight:bold;
+}
+
+------------------------------------ ±€æ¥¿Ã
+content ul li p.text span.info{
+	max-height:20px;
+    display:block;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+	font-size:11px!important;
+	color:#999;
+	text-align:left;
+	margin-top:5px;
+}
+
+content ul li p.cmt span.count{
+    display:inline-block;
+	color:#f90;
+	font-size:13px;
+    letter-spacing:-1px;
+	font-weight:bold;
+    padding:0 10px;
+    height:26px;
+    border:1px solid #eee;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	line-height:26px;
+}
+
+
+content ul li span.more{
+    vertical-align: middle;	
+	display:inherit;
+	float:right;
+	font-size:.8em;
+	font-weight:bold;
+	
+	margin-top:3px;
+    padding:1px 5px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	line-height:15px;
+	
+    max-width:50px!important;
+    width:50px;
+	
+    letter-spacing:-1px;
+	background-color:#f90;
+    border:1px solid #999;
+    height:26px;
+}
+
+
+content ul.list_contents li img.thumb{
+    float:left;
+    display:table-cell;
+    margin:0 5px;
+}
+
+content ul li p.more_p{
+	width:25%;
+}
+
+
+
+*/
+
+
+
+
+
+
+/*º”º∫*/
+ul, li, ol {
+    list-style-type: none;
+}
+a, img, input, textarea, select, button {
+	text-decoration: none;
+	outline: none;
+	select-dummy: expression( this.style.wordWrap="normal",this.hideFocus=true);
+}
+
+img {
+	margin: 0px;
+    padding: 0px;
+    border: 0px;
+    border-image: none;
+    max-width:100%;
+}
+input::placeholder, textarea::placeholder{
+	color:#ccc;
+}
+.clear{
+    clear: both;
+}
+
+
+.center{
+    text-align:center;
+}
+
+
+
+@media all and (max-width:480px) {
+		
+	content div.du03 ul{
+		
+	}
+	content div.du03 ul.list_contents li{
+		display:block;
+		float:none;
+		width:95%;
+		margin:5px;
+		vertical-align:middle;
+		
+		border:1px solid #dadcdf;
+		
+	}
+
+	content div.du03 ul.list_contents li img.thumb {
+		/*
+		max-width:250px!important;*/
+		width:100%;
+		height:200px;/*auto;*/
+		
+	}
+
+
+	content ul.write_contents li input[type~=text],
+	content ul.write_contents li textarea {
+		width:94.5%;
+	}
+	
+}

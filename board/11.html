@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>자유게시판 글쓰기 | GNUBOARD_M</title>
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/css/default.css?ver=171222">
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/skin/outlogin/basic/style.css?ver=171222">
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/skin/connect/basic/style.css?ver=171222">
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/skin/popular/basic/style.css?ver=171222">
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/skin/visit/basic/style.css?ver=171222">
+<link rel="stylesheet" href="http://demo.gnuboard.com/theme/basic/skin/board/basic/style.css?ver=171222">
+<!--[if lte IE 8]>
+<script src="http://demo.gnuboard.com/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var gml_url       = "http://demo.gnuboard.com";
+var gml_bbs_url   = "http://demo.gnuboard.com/bbs";
+var gml_is_member = "";
+var gml_is_admin  = "";
+var gml_is_mobile = "";
+var gml_bo_table  = "free";
+var gml_sca       = "";
+var gml_editor    = "ckeditor4";
+var gml_cookie_domain = "";
+var gml_lang = "ko_KR";
+</script>
+<script src="http://demo.gnuboard.com/js/jquery-1.12.4.min.js"></script>
+<script src="http://demo.gnuboard.com/js/jquery-migrate-1.4.1.min.js"></script>
+<script src="http://demo.gnuboard.com/js/jquery.menu.js?ver=171222"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var common_js_l10n = {"confirm_delete_text":"\uc815\ub9d0 \uc0ad\uc81c\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","token_wrong_text":"\ud1a0\ud070\uc815\ubcf4\uac00 \uc62c\ubc14\ub974\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."};
+/* ]]> */
+</script>
+<script src="http://demo.gnuboard.com/js/common.js?ver=171222"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wrest_js_l10n = {"required_msg":"\ud544\uc218 %s \uc785\ub2c8\ub2e4","selection_msg":"\uc120\ud0dd","enter_msg":"\uc785\ub825","phone_number_msg":"\uc804\ud654\ubc88\ud638 \ud615\uc2dd\uc774 \uc62c\ubc14\ub974\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.","hyphen_msg":"\ud558\uc774\ud508(-)\uc744 \ud3ec\ud568\ud558\uc5ec \uc785\ub825\ud558\uc138\uc694.","email_msg":"\uc774\uba54\uc77c\uc8fc\uc18c \ud615\uc2dd\uc774 \uc544\ub2d9\ub2c8\ub2e4.","hangeul_check_msg":"(\uc790\uc74c, \ubaa8\uc74c \uc870\ud569\ub41c \ud55c\uae00\ub9cc \uac00\ub2a5)","hangeul_not_msg":"\ud55c\uae00\uc774 \uc544\ub2d9\ub2c8\ub2e4.","char_check_msg":"\ud55c\uae00, \uc601\ubb38, \uc22b\uc790\uac00 \uc544\ub2d9\ub2c8\ub2e4.","str_check_msg":"\ud55c\uae00, \uc601\ubb38\uc774 \uc544\ub2d9\ub2c8\ub2e4.","number_check_msg":"\uc22b\uc790\uac00 \uc544\ub2d9\ub2c8\ub2e4.","english_check_msg":"\uc601\ubb38\uc774 \uc544\ub2d9\ub2c8\ub2e4.","eon_check_msg":"\uc601\ubb38 \ub610\ub294 \uc22b\uc790\uac00 \uc544\ub2d9\ub2c8\ub2e4.","eonoh_check_msg":"\uc601\ubb38, \uc22b\uc790, _ \uac00 \uc544\ub2d9\ub2c8\ub2e4.","minlength_msg":"\ucd5c\uc18c %s \uae00\uc790 \uc774\uc0c1 \uc785\ub825\ud558\uc138\uc694.","image_check_msg":"\uc774\ubbf8\uc9c0 \ud30c\uc77c\uc774 \uc544\ub2d9\ub2c8\ub2e4.","image_ex_check_msg":".gif .jpg .png \ud30c\uc77c\ub9cc \uac00\ub2a5\ud569\ub2c8\ub2e4.","allow_file_msg":"\ud655\uc7a5\uc790\uac00 .%s \ud30c\uc77c\ub9cc \uac00\ub2a5\ud569\ub2c8\ub2e4.","space_check_msg":"\uacf5\ubc31\uc774 \uc5c6\uc5b4\uc57c \ud569\ub2c8\ub2e4."};
+/* ]]> */
+</script>
+<script src="http://demo.gnuboard.com/js/wrest.js?ver=171222"></script>
+<script src="http://demo.gnuboard.com/js/placeholders.min.js"></script>
+<script src="http://demo.gnuboard.com/js/swiper/swiper.jquery.min.js?ver=171222"></script>
+<script src="http://demo.gnuboard.com/js/swiper/swiper.extend.user.js?ver=171222"></script>
+<link rel="stylesheet" href="http://demo.gnuboard.com/js/swiper/swiper.min.css">
+<link rel="stylesheet" href="http://demo.gnuboard.com/js/font-awesome/css/font-awesome.min.css">
+</head>
+<body class="lang_ko_KR">
+
+<!-- header start { -->
+<div id="hd">
+    <h1 id="hd_h1">자유게시판 글쓰기</h1>
+
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+
+    
+    <div id="hd_wrapper">
+        <div id="logo">
+            <a href="http://demo.gnuboard.com"><img src="http://demo.gnuboard.com/img/logo.png" alt="GNUBOARD_M"></a>
+        </div>
+
+		<div id="tnb">
+	        <ul>
+	            	            <li><a href="http://demo.gnuboard.com/bbs/register.php">회원가입</a></li>
+	            <li><a href="http://demo.gnuboard.com/bbs/login.php"><b>로그인</b></a></li>
+	            
+	            	        </ul>
+		</div>
+
+        <div class="hd_sch_wr">
+            <fieldset id="hd_sch">
+                <legend>사이트 내 전체검색</legend>
+                <form name="fsearchbox" method="get" action="http://demo.gnuboard.com/bbs/search.php" onsubmit="return fsearchbox_submit(this);">
+                <input type="hidden" name="sfl" value="wr_subject||wr_content">
+                <input type="hidden" name="sop" value="and">
+                <label for="sch_stx" class="sound_only">검색어 필수</label>
+                <input type="text" name="stx" id="sch_stx" maxlength="20" placeholder="검색어를 입력해주세요">
+                <button type="submit" id="sch_submit" value="검색"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
+                </form>
+
+                <script type="text/javascript">
+/* <![CDATA[ */
+var locale_head = {"character_msg":"\uac80\uc0c9\uc5b4\ub294 \ub450\uae00\uc790 \uc774\uc0c1 \uc785\ub825\ud558\uc2ed\uc2dc\uc624.","gap_msg":"\ube60\ub978 \uac80\uc0c9\uc744 \uc704\ud558\uc5ec \uac80\uc0c9\uc5b4\uc5d0 \uacf5\ubc31\uc740 \ud55c\uac1c\ub9cc \uc785\ub825\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."};
+/* ]]> */
+</script>
+                <script>
+                function fsearchbox_submit(f)
+                {
+                    if (f.stx.value.length < 2) {
+                        alert( locale_head.character_msg );
+                        f.stx.select();
+                        f.stx.focus();
+                        return false;
+                    }
+
+                    var cnt = 0;
+                    for (var i=0; i<f.stx.value.length; i++) {
+                        if (f.stx.value.charAt(i) == ' ')
+                            cnt++;
+                    }
+
+                    if (cnt > 1) {
+                        alert( locale_head.gap_msg );
+                        f.stx.select();
+                        f.stx.focus();
+                        return false;
+                    }
+
+                    return true;
+                }
+                </script>
+            </fieldset>
+        </div>
+    </div>
+
+    <nav id="gnb">
+        <h2>메인메뉴</h2>
+        <div class="gnb_wrap">
+            <ul id="gnb_1dul">
+                <li class="gnb_1dli gnb_mnal"><button type="button" class="gnb_menu_btn"><i class="fa fa-bars" aria-hidden="true"></i><span class="sound_only">전체메뉴열기</span></button></li>
+                                <li class="gnb_1dli" style="z-index:999">
+                    <a href="http://demo.gnuboard.com/free" target="_self" class="gnb_1da">자유게시판</a>
+                    <span class="bg">하위분류</span><ul class="gnb_2dul">
+                        <li class="gnb_2dli"><a href="http://demo.gnuboard.com/qa" target="_self" class="gnb_2da">질문답변</a></li>
+                                            <li class="gnb_2dli"><a href="http://sir.kr" target="_self" class="gnb_2da">SIR</a></li>
+                    </ul>
+                </li>
+                                <li class="gnb_1dli" style="z-index:998">
+                    <a href="http://demo.gnuboard.com/gallery" target="_self" class="gnb_1da">갤러리</a>
+                                    </li>
+                            </ul>
+            <div id="gnb_all">
+                <h2>전체메뉴</h2>
+                <ul class="gnb_al_ul">
+                                        <li class="gnb_al_li">
+                        <a href="http://demo.gnuboard.com/free" target="_self" class="gnb_al_a">자유게시판</a>
+                        <ul>
+                            <li><a href="http://demo.gnuboard.com/qa" target="_self">질문답변</a></li>
+                                                    <li><a href="http://sir.kr" target="_self">SIR</a></li>
+                        </ul>
+                    </li>
+                                        <li class="gnb_al_li">
+                        <a href="http://demo.gnuboard.com/gallery" target="_self" class="gnb_al_a">갤러리</a>
+                                            </li>
+                                    </ul>
+                <button class="gnb_close_btn"><span class="sound_only">닫기</span><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </nav>
+    <script>
+
+    jQuery(function($){
+        $(".gnb_menu_btn").click(function(){
+            $("#gnb_all").show();
+        });
+        $(".gnb_close_btn").click(function(){
+            $("#gnb_all").hide();
+        });
+    });
+
+    </script>
+</div>
+<!-- } end header -->
+
+<!-- start contents { -->
+<div id="wrapper">
+    <div id="container_wr">
+
+	<div id="aside">
+        		    	
+<!-- Start outlogin form { -->
+<section id="ol_before" class="ol">
+    <h2>회원로그인</h2>
+    <form name="foutlogin" action="http://demo.gnuboard.com/bbs/login_check.php" onsubmit="return fhead_submit(this);" method="post" autocomplete="off">
+    <fieldset>
+        <div class="ol_wr">
+            <input type="hidden" name="url" value="%2Fbbs%2Fwrite.php%3Fbo_table%3Dfree">
+            <label for="ol_id" id="ol_idlabel" class="sound_only">회원아이디<strong>필수</strong></label>
+            <input type="text" id="ol_id" name="mb_id" required maxlength="20" placeholder="아이디">
+            <label for="ol_pw" id="ol_pwlabel" class="sound_only">패스워드<strong>필수</strong></label>
+            <input type="password" name="mb_password" id="ol_pw" required maxlength="20" placeholder="패스워드">
+            <button type="submit" id="ol_submit" class="btn_b02">로그인</button>
+        </div>
+        <div class="ol_auto_wr">
+            <div id="ol_auto">
+                <label for="auto_login" id="auto_login_label"><span class="agree_ck"></span>자동로그인</label>
+                <input type="checkbox" name="auto_login" value="1" id="auto_login">
+            </div>
+            <div id="ol_svc">
+                <a href="http://demo.gnuboard.com/bbs/register.php" class="border-right"><b>회원가입</b></a>
+                <a href="http://demo.gnuboard.com/bbs/password_lost.php" id="ol_password_lost">계정찾기</a>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+</section>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var outlogin_skin1 = {"check_msg1":"\uc790\ub3d9\ub85c\uadf8\uc778\uc744 \uc0ac\uc6a9\ud558\uc2dc\uba74 \ub2e4\uc74c\ubd80\ud130 \ud68c\uc6d0\uc544\uc774\ub514\uc640 \ube44\ubc00\ubc88\ud638\ub97c \uc785\ub825\ud558\uc2e4 \ud544\uc694\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.","check_msg2":"\uacf5\uacf5\uc7a5\uc18c\uc5d0\uc11c\ub294 \uac1c\uc778\uc815\ubcf4\uac00 \uc720\ucd9c\ub420 \uc218 \uc788\uc73c\ub2c8 \uc0ac\uc6a9\uc744 \uc790\uc81c\ud558\uc5ec \uc8fc\uc2ed\uc2dc\uc624.","check_msg3":"\uc790\ub3d9\ub85c\uadf8\uc778\uc744 \uc0ac\uc6a9\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?"};
+/* ]]> */
+</script>
+<script>
+$omi = $('#ol_id');
+$omp = $('#ol_pw');
+$omi_label = $('#ol_idlabel');
+$omi_label.addClass('ol_idlabel');
+$omp_label = $('#ol_pwlabel');
+$omp_label.addClass('ol_pwlabel');
+
+jQuery(function($) {
+
+    $("#auto_login").click(function(){
+        if ($(this).is(":checked")) {
+            if(!confirm(outlogin_skin1.check_msg1 + "\n\n" + outlogin_skin1.check_msg2 + "\n\n" + outlogin_skin1.check_msg3)) {
+                $(".agree_ck").removeClass("click_on");
+                return false;
+            }
+        }
+    });
+
+    $("#auto_login_label").click(function(){
+        $(".agree_ck").toggleClass("click_on");
+    });
+});
+
+function fhead_submit(f)
+{
+    return true;
+}
+
+</script>
+<!-- } End outlogin form -->
+    	<ul id="hd_qnb">
+            <li class="hd_qnb_faq"><a href="http://demo.gnuboard.com/bbs/faq.php"><i class="fa fa-question" aria-hidden="true"></i><span>FAQ</span></a></li>
+            <li class="hd_qnb_qalist"><a href="http://demo.gnuboard.com/bbs/qalist.php"><i class="fa fa-comments" aria-hidden="true"></i><span>1:1 문의</span></a></li>
+            <li class="hd_qnb_new"><a href="http://demo.gnuboard.com/bbs/current_connect.php" class="visit"><i class="fa fa-users" aria-hidden="true"></i><span>방문자</span><strong class="visit-num">2</strong></a></li>
+            <li class="hd_qnb_cc"><a href="http://demo.gnuboard.com/bbs/new.php"><i class="fa fa-history" aria-hidden="true"></i><span>새글</span></a></li>
+        </ul>
+
+				
+<!-- Start top Search { -->
+<section id="popular">
+    <div>
+        <h2>인기검색어</h2>
+        <ul>
+                            <li class="empty_li">아직 검색어가 없습니다.</li>
+                </ul>
+
+    </div>
+</section>
+<!-- } End top Search -->		
+<!-- Start Count Vister { -->
+<section id="visit">
+    <h2>접속자집계</h2>
+    <dl>
+        <dt><i class="fa fa-user-circle-o" aria-hidden="true"></i> 오늘</dt>
+        <dd><strong class="color_1">17</strong></dd>
+        <dt><i class="fa fa-user-circle-o" aria-hidden="true"></i> 어제</dt>
+        <dd><strong class="color_2">18</strong></dd>
+        <dt><i class="fa fa-user-circle-o" aria-hidden="true"></i> 최대</dt>
+        <dd><strong class="color_3">86</strong></dd>
+        <dt><i class="fa fa-user-circle-o" aria-hidden="true"></i> 전체</dt>
+        <dd><strong class="color_4">1,908</strong></dd>
+    </dl>
+    </section>
+<!-- } End Count Vister -->            </div>
+    <div id="container">
+	    	        	<h2 id="container_title"><span title="자유게시판 글쓰기">자유게시판 글쓰기</span></h2>
+            <!-- skin : basic -->
+<section id="bo_w">
+    <h2 class="sound_only">자유게시판 글쓰기</h2>
+
+    <!-- Start creating / modifying posts { -->
+    <form name="fwrite" id="fwrite" action="http://demo.gnuboard.com/bbs/write_update.php" onsubmit="return fwrite_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off" style="width:100%">
+    <input type="hidden" name="uid" value="18100112340033">
+    <input type="hidden" name="w" value="">
+    <input type="hidden" name="bo_table" value="free">
+    <input type="hidden" name="wr_id" value="0">
+    <input type="hidden" name="sca" value="">
+    <input type="hidden" name="sfl" value="">
+    <input type="hidden" name="stx" value="">
+    <input type="hidden" name="spt" value="">
+    <input type="hidden" name="sst" value="">
+    <input type="hidden" name="sod" value="">
+    <input type="hidden" name="page" value="">
+    <input type="hidden" value="html1" name="html">
+    
+    <div class="bo_w_info write_div">
+            <label for="wr_name" class="sound_only">이름<strong>필수</strong></label>
+        <input type="text" name="wr_name" value="" id="wr_name" required class="frm_input required" placeholder="이름">
+    
+            <label for="wr_password" class="sound_only">패스워드<strong>필수</strong></label>
+        <input type="password" name="wr_password" id="wr_password" required class="frm_input required" placeholder="패스워드">
+    
+        	<label for="wr_email" class="sound_only">이메일</label>
+    	<input type="text" name="wr_email" value="" id="wr_email" class="frm_input email" placeholder="이메일">
+                <label for="wr_homepage" class="sound_only">홈페이지</label>
+        <input type="text" name="wr_homepage" value="" id="wr_homepage" class="frm_input" size="50" placeholder="홈페이지">
+        </div>
+
+    
+    <div class="bo_w_tit write_div">
+        <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
+
+        <div id="autosave_wrapper">
+            <input type="text" name="wr_subject" value="" id="wr_subject" required class="frm_input full_input required" size="50" maxlength="255" placeholder="제목">
+                    </div>
+    </div>
+
+    <div class="write_div">
+        <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
+        <div class="wr_content ckeditor4">
+                        <span class="sound_only">웹 에디터 시작</span><script>document.write("<div class='cke_sc'><!--<button type='button' class='btn_cke_sc'>단축키 보기</button>--></div>");</script>
+<script src="http://demo.gnuboard.com/plugin/editor/ckeditor4/ckeditor.js?v=171222"></script>
+<script>var gml_editor_url = "http://demo.gnuboard.com/plugin/editor/ckeditor4";</script>
+<script>
+        var editor_token = "15383648405bb195a851505",
+            editor_id = "wr_content",       // 에디터 구분
+            editor_height = 350,     // 에디터 높이
+            editor_chk_upload = true,           // 업로드 상태
+            editor_uri = "%2Fbbs%2Fwrite.php%3Fbo_table%3Dfree";     // 업로드 경로
+        $(function(){
+            $(".btn_cke_sc").click(function(){
+                if ($(this).next("div.cke_sc_def").length) {
+                    $(this).next("div.cke_sc_def").remove();
+                    $(this).text("단축키 보기");
+                } else {
+                    $(this).after("<div class='cke_sc_def' />").next("div.cke_sc_def").load("http://demo.gnuboard.com/plugin/editor/ckeditor4/shortcut.html");
+                    $(this).text("단축키 닫기");
+                }
+            });
+            $(".btn_cke_sc_close").on("click",function(){
+                $(this).parent("div.cke_sc_def").remove();
+            });
+        });
+</script>
+            <style>
+            .editor_loading { position: absolute; left: 50%; top: 50%; z-index: 1; margin: -25px 0 0 -25px; border: 5px solid #f3f3f3; border-radius: 50%; border-top: 5px solid #3498db; width: 30px; height: 30px; -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; }
+            @-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
+            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            </style>
+        <div class="editor_loading"></div>
+
+            <script>
+            try
+            {
+                CKEDITOR.on( 'instanceLoaded', function (e) {
+                    var loader = $("div.editor_loading").css("display","none");
+                });
+            }
+            catch(e) {}
+            </script>
+        
+<textarea id="wr_content" name="wr_content" class="ckeditor" maxlength="65536" style="height:350px; border:none;"></textarea>
+<span class="sound_only">웹에디터 끝</span><script> var editor_form_name = document.getElementById('wr_content').form.name; </script><input type="hidden" name="ei_token" value="15383648405bb195a851505" />                    </div>
+    </div>
+
+        <div class="bo_w_link write_div">
+        <label for="wr_link1"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크 #1</span></label>
+        <input type="text" name="wr_link1" value="" id="wr_link1" class="frm_input full_input" size="50" placeholder=" 링크를 입력해 주세요.">
+    </div>
+        <div class="bo_w_link write_div">
+        <label for="wr_link2"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크 #2</span></label>
+        <input type="text" name="wr_link2" value="" id="wr_link2" class="frm_input full_input" size="50" placeholder=" 링크를 입력해 주세요.">
+    </div>
+    
+        <div class="bo_w_flie write_div">
+        <div class="file_wr write_div">
+            <label for="bf_file_1" class="lb_icon"><i class="fa fa-download" aria-hidden="true"></i><span class="sound_only"> 파일 #1</span></label>
+            <input type="file" name="bf_file[]" id="bf_file_1" title="파일첨부 1 : 용량 1,048,576 바이트 이하만 업로드 가능" class="frm_file">
+        </div>
+        
+            </div>
+        <div class="bo_w_flie write_div">
+        <div class="file_wr write_div">
+            <label for="bf_file_2" class="lb_icon"><i class="fa fa-download" aria-hidden="true"></i><span class="sound_only"> 파일 #2</span></label>
+            <input type="file" name="bf_file[]" id="bf_file_2" title="파일첨부 2 : 용량 1,048,576 바이트 이하만 업로드 가능" class="frm_file">
+        </div>
+        
+            </div>
+    
+        <div class="write_div">
+        
+<script>var gml_captcha_url  = "http://demo.gnuboard.com/plugin/kcaptcha";</script>
+<script src="http://demo.gnuboard.com/plugin/kcaptcha/kcaptcha.js"></script>
+<fieldset id="captcha" class="captcha">
+<legend><label for="captcha_key">Captcha</label></legend>
+<img src="http://demo.gnuboard.com/plugin/kcaptcha/img/dot.gif" alt="" id="captcha_img"><input type="text" name="captcha_key" id="captcha_key" required class="captcha_box required" size="6" maxlength="6">
+<button type="button" id="captcha_mp3"><span></span>숫자음성듣기</button>
+<button type="button" id="captcha_reload"><span></span>새로고침</button>
+<span id="captcha_info">자동등록방지 숫자를 순서대로 입력하세요.</span>
+</fieldset>    </div>
+    
+    <div class="btn_confirm write_div">
+        <a href="http://demo.gnuboard.com/free" class="btn_cancel btn">취소</a>
+        <input type="submit" value="저장" id="btn_submit" accesskey="s" class="btn_submit btn">
+    </div>
+    </form>
+</section>
+<!-- } End creating / modifying posts -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var write_l10n = {"wrap_msg":"\uc790\ub3d9 \uc904\ubc14\uafc8\uc744 \ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","convert_tag_msg":"\uc790\ub3d9 \uc904\ubc14\uafc8\uc740 \uac8c\uc2dc\ubb3c \ub0b4\uc6a9\uc911 \uc904\ubc14\ub010 \uacf3\uc744<br>\ud0dc\uadf8\ub85c \ubcc0\ud658\ud558\ub294 \uae30\ub2a5\uc785\ub2c8\ub2e4.","subject_check_msg":"\uc81c\ubaa9\uc5d0 \uae08\uc9c0\ub2e8\uc5b4 (%s) \uac00 \ud3ec\ud568\ub418\uc5b4\uc788\uc2b5\ub2c8\ub2e4","content_check_msg":"\ub0b4\uc6a9\uc5d0 \uae08\uc9c0\ub2e8\uc5b4 (%s) \uac00 \ud3ec\ud568\ub418\uc5b4\uc788\uc2b5\ub2c8\ub2e4","content_min_msg":"\ub0b4\uc6a9\uc740 %s \uae00\uc790 \uc774\uc0c1 \uc4f0\uc154\uc57c \ud569\ub2c8\ub2e4.","content_max_msg":"\ub0b4\uc6a9\uc740 %s \uae00\uc790 \uc774\ud558\ub85c \uc4f0\uc154\uc57c \ud569\ub2c8\ub2e4."};
+/* ]]> */
+</script>
+
+<script>
+function html_auto_br(obj)
+{
+    if (obj.checked) {
+        result = confirm( write_l10n.wrap_msg+"\n\n"+write_l10n.convert_tag_msg );
+        if (result)
+            obj.value = "html2";
+        else
+            obj.value = "html1";
+    }
+    else
+        obj.value = "";
+}
+
+function fwrite_submit(f)
+{
+    var wr_content_editor_data = CKEDITOR.instances.wr_content.getData();
+if (!wr_content_editor_data) { alert("내용을 입력하세요."); CKEDITOR.instances.wr_content.focus(); return false; }
+if (typeof(f.wr_content)!="undefined") f.wr_content.value = wr_content_editor_data;
+
+        var temp_data = wr_content_editor_data.replace(/thumb\-([_\d\.]+)_\d+x\d+/gim, function(res1, res2) { return res2; });
+        CKEDITOR.instances.wr_content.setData(temp_data);
+if(typeof(editor_chk_upload) != "undefined" && !editor_chk_upload) { alert("이미지 업로드 중 입니다."); return false; }
+
+    var subject = "";
+    var content = "";
+    $.ajax({
+        url: gml_bbs_url+"/ajax.filter.php",
+        type: "POST",
+        data: {
+            "subject": f.wr_subject.value,
+            "content": f.wr_content.value
+        },
+        dataType: "json",
+        async: false,
+        cache: false,
+        success: function(data, textStatus) {
+            subject = data.subject;
+            content = data.content;
+        }
+    });
+
+    if (subject) {
+        alert(js_sprintf(write_l10n.subject_check_msg, subject));
+        f.wr_subject.focus();
+        return false;
+    }
+
+    if (content) {
+        alert(js_sprintf(write_l10n.content_check_msg, content));
+        if (typeof(ed_wr_content) != "undefined")
+            ed_wr_content.returnFalse();
+        else
+            f.wr_content.focus();
+        return false;
+    }
+
+    if (document.getElementById("char_count")) {
+        if (char_min > 0 || char_max > 0) {
+            var cnt = parseInt(check_byte("wr_content", "char_count"));
+            if (char_min > 0 && char_min > cnt) {
+                alert(js_sprintf(write_l10n.content_min_msg, char_min));
+                return false;
+            }
+            else if (char_max > 0 && char_max < cnt) {
+                alert(js_sprintf(write_l10n.content_max_msg, char_max));
+                return false;
+            }
+        }
+    }
+
+    if (!chk_captcha()) return false;
+
+    document.getElementById("btn_submit").disabled = "disabled";
+
+    return true;
+}
+</script>
+
+				
+	    	    </div>
+	</div>
+</div>
+<!-- } end contents -->
+
+<!-- footer start { -->
+<div id="ft">
+
+    <div id="ft_link">
+        <div class="ft_inner">
+            <a href="http://demo.gnuboard.com/content/company">회사소개</a>
+            <a href="http://demo.gnuboard.com/content/privacy">개인정보처리방침</a>
+            <a href="http://demo.gnuboard.com/content/provision">서비스이용약관</a>
+            <a href="http://demo.gnuboard.com/bbs/write.php?bo_table=free&amp;device=mobile">모바일보기</a>
+
+            <div class="lang_var_select">
+                <span class="sound_only">사이트 언어 선택</span>
+                
+<select id="theme_lang_bar" name="theme_lang_bar" class="theme_select_lang">
+<option data-url="http://demo.gnuboard.com/bbs/write.php?bo_table=free&amp;lang=en_US" value="en_US">English</option>
+<option data-url="http://demo.gnuboard.com/bbs/write.php?bo_table=free&amp;lang=ko_KR" value="ko_KR" selected="selected">한국어</option>
+<option data-url="http://demo.gnuboard.com/bbs/write.php?bo_table=free&amp;lang=ja_JP" value="ja_JP">日本語</option>
+<option data-url="http://demo.gnuboard.com/bbs/write.php?bo_table=free&amp;lang=zh_CN" value="zh_CN">简体中文</option>
+</select>
+<script>
+jQuery("select.theme_select_lang").change(function(e) {
+location.replace($("option:selected", this).attr("data-url"));
+});
+</script>
+            </div>
+        </div>
+    </div>
+
+	<div class="ft_inner">
+		<div id="ft_catch"><img src="http://demo.gnuboard.com/img/ft_logo.png" alt="GNUBOARD_M"></div>
+		<div id="ft_copy">Copyright &copy; <b>소유하신 도메인.</b> All rights reserved.</div>
+    </div>
+    <button id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단</span></button>
+</div>
+
+
+<!-- } end footer -->
+
+<script>
+jQuery(function($) {
+
+    $("#top_btn").on("click", function() {
+        $("html, body").animate({scrollTop:0}, '500');
+        return false;
+    });
+
+    // Font Resize by web Cookie
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+
+</body>
+</html>
