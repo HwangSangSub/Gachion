@@ -1,0 +1,11 @@
+tmap/cache/
+logs/
+vendor/
+.vscode/
+data/session
+lib/dbcon.phpnode/node_modules/puppeteer/.local-chromium/**
+udev/admin/data/*.geojson
+node/node_modules/puppeteer/.local-chromium/**
+udev/admin/data/test2.geojson
+js/phantomjs-2.1.1-linux-x86_64/**
+js/screen-master/bin/phantomjs
